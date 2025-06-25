@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>UC CMP V3 TCF + Utiq</title>
     
-<script src="https://web.cmp.usercentrics.eu/tcf/stub.js"></script>
+    <script src="https://web.cmp.usercentrics.eu/tcf/stub.js"></script>
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="Sl93nWOb_kBzj_" async></script>    
+
+    <script> 
+window.addEventListener("ucEvent", function (e) {    
+  if(e.detail && e.detail.event == "consent_status") {
+    // check for consent status of service "Utiq"
+    if(e.detail['Utiq'] === true) {
+      console.log('Utiq has consent');
+    }
+    else {
+      console.log('Utiq has no consent');
+    }
+  }
+});
+</script>
+
+    
 </head>
 <body>
     <h1>UC CMP V3 TCF + Utiq</h1>
